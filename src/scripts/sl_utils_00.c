@@ -47,6 +47,7 @@ size_t	ft_columns(char *fn)
 	col = 0;
 	while (read(fd, &c, 1) > 0 && c != '\n')
 		col++;
+	close(fd);
 	return (col);
 }
 
@@ -62,5 +63,16 @@ size_t	ft_rows(char *fn)
 	while (read(fd, &c, 1) != 0)
 		if (c == '\n')
 			row++;
+	close(fd);
 	return (row);
+}
+
+/**
+ *	Método que termina con el programa en caso de error.
+ *	@param	char	*message	Custom error message displayed.
+ */
+int	throw_exception(char *message)
+{
+	printf("\nERROR: %s\n", message);
+	return (1);
 }

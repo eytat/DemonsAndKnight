@@ -23,8 +23,8 @@
 int		ch_linelen(int col, char *line);
 int		ch_chars(int r, int col, char *line, int cep[3]);
 int		ch_map(int fd, int col, int row);
-void	exception_manager(int argc, char **argv);
-void	throw_exception(char *message);
+int		ch_resolution(int col, int row);
+int		exception_manager(int argc, char **argv);
 
 /**
  *	Método que comprueba si los parámetros pasados son los correctos.
@@ -36,29 +36,29 @@ void	throw_exception(char *message);
  *	@param	int		argc	number of arguments of argv.
  *	@param	char	**argv	input of main.
  */
-void	exception_manager(int argc, char **argv)
+int	exception_manager(int argc, char **argv)
 {
 	int	len;
 	int	fd;
+	int	fail;
 
+	fail = 0;
 	if (argc != 2)
-		throw_exception("There must be only one .ber file;");
+		fail = throw_exception("There must be only one .ber file;");
 	len = ft_strlen(argv[1]);
-	if (len < 5 || ft_strncmp(argv[1] + len - 4, ".ber\0", 5) != 0)
-		throw_exception("File must be filename.ber;");
+	if (!fail && (len < 5 || ft_strncmp(argv[1] + len - 4, ".ber\0", 5) != 0))
+		fail = throw_exception("File must be filename.ber;");
 	fd = open(argv[1], O_RDONLY);
-	if (fd < 0)
-	{
-		close(fd);
-		throw_exception("File doesn't exist;");
-	}
-	if (ch_map(fd, ft_columns(argv[1]), ft_rows(argv[1])) == 1)
-	{
-		close(fd);
-		throw_exception("Incorrect map format");
-	}
+	if (!fail && fd < 0)
+		fail = throw_exception("File isn't accesible;");
+	else if (!fail && ch_resolution(ft_columns(argv[1]), ft_rows(argv[1])))
+		fail = throw_exception("Incorrect map size;");
+	else if (!fail && ch_map(fd, ft_columns(argv[1]), ft_rows(argv[1])) == 1)
+		fail = throw_exception("Incorrect map format;");
 	close(fd);
-	return ;
+	if (fail)
+		exit(0);
+	return (fail);
 }
 
 /**
@@ -68,9 +68,11 @@ void	exception_manager(int argc, char **argv)
 int	ch_linelen(int col, char *line)
 {
 	int	r;
+	int	len;
 
 	r = 0;
-	if ((int)ft_strlen(line) - 1 != col)
+	len = ft_strlen(line) - 1;
+	if (len != col)
 		r = 1;
 	else if (line[0] != MWA || line[col - 1] != MWA)
 		r = 1;
@@ -125,22 +127,32 @@ int	ch_map(int fd, int col, int row)
 		r = ch_chars(r, col, line, cep);
 		free(line);
 	}
-	if (cep[0] + cep[1] + cep[2] != 3)
+	if (!r && (cep[0] + cep[1] + cep[2] != 3))
 		r = 1;
 	line = get_next_line(fd);
-	if (ft_strffnotof(line, MWA) == 1)
+	if (!r && ft_strffnotof(line, MWA) == 1)
 		r = 1;
 	free(line);
 	return (r);
 }
 
 /**
- *	Método que termina con el programa en caso de error.
- *	@param	char	*message	Custom error message displayed.
+ * DESCRIPTION:
+ * Comprueba que el número de celdas no sea mayor que el límte
+ * establecido. Es para filas y columnas. Pretende impedir que
+ * la ventana del juego no sea mayor que la del equipo.
+ * PARAMENTERS:
+ * @param	int	col	Number of columns of filename.ber.
+ * @param	int	row	Number of rows of filename.ber.
  */
-void	throw_exception(char *message)
+int	ch_resolution(int col, int row)
 {
-	printf("\nERROR: %s\n", message);
-	exit(0);
-	return ;
+	int	r;
+
+	r = 0;
+	if (col > WINRES_WIDTH || row > WINRES_HEIGHT)
+		r = 1;
+	else if (col == 0 || row == 0)
+		r = 1;
+	return (r);
 }

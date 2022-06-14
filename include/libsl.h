@@ -25,6 +25,8 @@
 # define IMG_WIDTH 64
 # define IMG_HEIGHT 64
 # define ST 100
+# define WINRES_WIDTH 25
+# define WINRES_HEIGHT 25
 
 # define MSP '0'
 # define MWA '1'
@@ -114,13 +116,14 @@ typedef struct s_var
 
 size_t	ft_columns(char *fn);
 size_t	ft_rows(char *fn);
-void	exception_manager(int argc, char **argv);
 void	init_window(char *fn, t_var *var);
 void	get_map(char *fn, t_var *var);
 void	build_map(t_var *var);
 void	move_pc(int x, int y, t_var *var);
+int		exception_manager(int argc, char **argv);
 int		close_win(t_var *var);
 int		key_manager(int key, t_var *var);
+int		throw_exception(char *message);
 
 // Utils not relevant that will be deleted
 void	print_map(char *fn, t_map *map);

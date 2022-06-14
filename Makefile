@@ -40,7 +40,7 @@ MLX_PATH	=	./include/mlx
 #	COMPILER
 NAME		=	so_long.a
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror # -fsanitize=address
+CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address
 RM			=	rm -f
 MLX_FLAGS	=	-lmlx -framework OpenGL -framework AppKit
 

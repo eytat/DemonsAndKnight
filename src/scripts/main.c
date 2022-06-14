@@ -16,12 +16,14 @@ int	main(int argc, char **argv)
 {
 	t_var	var;
 
-	exception_manager(argc, argv);
-	init_window(argv[1], &var);
-	get_map(argv[1], &var);
-	build_map(&var);
-	mlx_hook(var.mlx_win, 17, 1L << 17, close_win, &var);
-	mlx_key_hook(var.mlx_win, key_manager, &var);
-	mlx_loop(var.mlx);
+	if (!exception_manager(argc, argv))
+	{
+		init_window(argv[1], &var);
+		get_map(argv[1], &var);
+		build_map(&var);
+		mlx_hook(var.mlx_win, 17, 1L << 17, close_win, &var);
+		mlx_key_hook(var.mlx_win, key_manager, &var);
+		mlx_loop(var.mlx);
+	}
 	return (0);
 }
