@@ -17,7 +17,6 @@ SRC			=	./src/scripts/exceptions_manager.c \
 				./src/scripts/sl_utils_00.c \
 				./src/scripts/map.c \
 				./src/scripts/key_manager.c \
-				./src/scripts/enemy.c \
 				./src/scripts/player.c \
 				./src/scripts/main.c
 
