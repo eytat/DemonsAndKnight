@@ -70,10 +70,10 @@ void	select_keycase(int x, int y, t_var *var)
  * ESC are holded. An event can be player's movement or close 
  * the window.
  * Keycodes:
- * 	W = 13.
- * 	A = 0.
- * 	S = 1.
- * 	D = 2.
+ * 	W = 13
+ * 	A = 0
+ * 	S = 1
+ * 	D = 2
  * PARAMETERS:
  * @param	int		key		Codekey of keyboard input.
  * @param	t_var	*var	Data about game.

@@ -12,4 +12,4 @@
 
 #!/bin/bash
 
-./so_long.a ./src/maps/generic_map.ber
+./so_long.a ./src/maps/generic_map2.ber
