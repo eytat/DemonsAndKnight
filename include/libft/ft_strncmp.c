@@ -12,6 +12,17 @@
 
 #include <stdio.h>
 
+/**
+ * DESCRIPTION:
+ * Compare not more than n characters between strings s1 and s2.
+ * PARAMETERS:
+ * @param	const char	*s1	String to compare with s2.
+ * @param	const char	*s2	String to compare with s1.
+ * @param	size_t		n	Number of characters to compare.
+ * RETURN:
+ * If the strings are different return the difference between the int code
+ * characters that aren't equal. If there isn't difference return 0.
+ */
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	unsigned int	i;

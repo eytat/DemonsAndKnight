@@ -12,6 +12,14 @@
 
 #include "libft.h"
 
+/**
+ * DESCRIPTION:
+ * Counts each character of the string s.
+ * PARAMETERS:
+ * @param	const char	*s	String to count.
+ * RETURN:
+ * Returns string length.
+ */
 size_t	ft_strlen(const char *s)
 {
 	size_t	len;

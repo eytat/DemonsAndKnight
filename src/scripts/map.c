@@ -13,7 +13,9 @@
 #include "../../include/libsl.h"
 
 /**
+ * DESCRIPTION:
  * Inicialize elements of param 'map' and allocs memory.
+ * PARAMETERS:
  * @param	char	*fn		File direction.
  * @param	t_map	*map	Data of filename.map.
  */
@@ -31,8 +33,10 @@ void	init_map(int row, int col, t_map *map)
 }
 
 /**
+ * DESCRIPTION:
  * Iniciliaze param 'map' and fill it with characters of
  * direction 'fn'.
+ * PARAMETERS:
  * @param	char	*fn		Filename.ber direction.
  * @param	t_map	*map	Data of filename.map.
  */
@@ -65,8 +69,10 @@ void	get_map(char *fn, t_var *var)
 }
 
 /**
+ * DESCRIPTION:
  * Starts a window and place all the tile elements based on
  * matrix 'map'.
+ * PARAMETERS:
  * @param	t_var	*var	All data about the game.
  */
 void	init_window(char *fn, t_var *var)
@@ -95,7 +101,9 @@ void	init_window(char *fn, t_var *var)
 }
 
 /**
+ * DESCRIPTION:
  * Put a tile into window base coordinates.
+ * PARAMETERS:
  * @param	int		x	Coordinate for axis X.
  * @param	int		y	Coordinate for axis Y.
  * @param	t_var	var	Program data.
@@ -128,8 +136,10 @@ void	put_tile(int x, int y, t_var *var)
 }
 
 /**
+ * DESCRIPTION:
  * Build map in funciton of filename.ber data. Also give images to 
  * players and enemies.
+ * PARAMETERS:
  * @param	t_var	*var	All mayor data about the game and map.
  */
 void	build_map(t_var *var)

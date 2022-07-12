@@ -17,10 +17,13 @@ void	select_keycase(int x, int y, t_var *var);
 int		key_manager(int key, t_var *var);
 
 /**
- * Close the game when ESC key is holded.
- * Keycodes:
- * 	ESC keycode: 53
+ * DESCRITION:
+ * Close the window and exit the process when
+ * ESC key is holded. ESC keycode: 53.
+ * PARAMETERS:
  * @param	t_var	*var	Data about game.
+ * RETURN:
+ * In exit return 0.
  */
 int	close_win(t_var *var)
 {
@@ -31,7 +34,9 @@ int	close_win(t_var *var)
 }
 
 /**
+ * DESCRIPTION:
  * Determinates the event when one of the keys WASD are holded.
+ * PARAMETERS:
  * @param	int		x		Modification of X Axis.
  * @param	int		y		Modification of Y Axis.
  * @param	t_var	*var	Data about game.
@@ -60,13 +65,20 @@ void	select_keycase(int x, int y, t_var *var)
 }
 
 /**
+ * DESCRIPTION:
+ * Determinates the event when one of the keys W, A, S, D or 
+ * ESC are holded. An event can be player's movement or close 
+ * the window.
  * Keycodes:
  * 	W = 13.
  * 	A = 0.
  * 	S = 1.
  * 	D = 2.
+ * PARAMETERS:
  * @param	int		key		Codekey of keyboard input.
  * @param	t_var	*var	Data about game.
+ * RETURN:
+ * When any event finish except close_win event return 0.
  */
 int	key_manager(int key, t_var *var)
 {

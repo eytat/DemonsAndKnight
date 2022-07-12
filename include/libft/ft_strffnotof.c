@@ -12,7 +12,17 @@
 
 #include "libft.h"
 
-// Todos los caracteres son iguales.
+/**
+ * DESCRIPTION:
+ * Checks that all characters of string str are
+ * same to c.
+ * PARAMETERS:
+ * @param	const char	*str	String to check.
+ * @param	int			c		Character to find.
+ * RETURN:
+ * If there is a different character to c returns 1 else
+ * return 0.
+ */
 int	ft_strffnotof(const char *str, int c)
 {
 	int	i;

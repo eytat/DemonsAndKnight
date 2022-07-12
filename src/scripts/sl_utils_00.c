@@ -13,7 +13,9 @@
 #include "../../include/libsl.h"
 
 /**
+ * DESCRIPTION:
  * Display characters map of param 'map'.
+ * PARAMETERS:
  * @param	t_map	*map	Data of filename.map.
  */
 void	print_map(char *fn, t_map *map)
@@ -36,7 +38,14 @@ void	print_map(char *fn, t_map *map)
 	return ;
 }
 
-/*	Returns number of columns. */
+/**
+ * DESCRIPTION:
+ * Counts each character of a line until find '\n'.
+ * PARAMETERS:
+ * @param	char	*fn	File path.
+ * RETURN:
+ * Returns number of columns.
+ */
 size_t	ft_columns(char *fn)
 {
 	int		fd;
@@ -51,7 +60,14 @@ size_t	ft_columns(char *fn)
 	return (col);
 }
 
-/*	Returns number of rows. */
+/**
+ * DESCRIPTION:
+ * Counts the '\n' of each line until the end's file .
+ * PARAMETERS:
+ * @param	char	*fn	File path.
+ * RETURN:
+ * Returns number of rows.
+ */
 size_t	ft_rows(char *fn)
 {
 	int		fd;
@@ -68,8 +84,12 @@ size_t	ft_rows(char *fn)
 }
 
 /**
- *	Método que termina con el programa en caso de error.
- *	@param	char	*message	Custom error message displayed.
+ * DESCRIPTION:
+ * Method that prints an error meassage when it happens.
+ * PARAMETERS:
+ * @param	char	*message	Custom error message displayed.
+ * RETURN:
+ * Always return 1.
  */
 int	throw_exception(char *message)
 {

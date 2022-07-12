@@ -17,7 +17,9 @@ void	update_win(int mx, int my, t_var *var);
 void	move_pc(int x, int y, t_var *var);
 
 /**
+ * DESCRIPTION:
  * Change data of map.
+ * PARAMETERS:
  * @param	int		x	Pixel modification of Y axis in map.
  * @param	int		y	Pixel modification of X axis in map.
  * @param	t_var	var	Data about game.
@@ -33,7 +35,9 @@ void	update_pos(int x, int y, t_var *var)
 }
 
 /**
+ * DESCRIPTION:
  * Put the new images into the window.
+ * PARAMETERS:
  * @param	int		mx	Pixel modification of Y axis.
  * @param	int		my	Pixel modification of X axis.
  * @param	t_var	var	Data about game.
@@ -56,7 +60,9 @@ void	update_win(int mx, int my, t_var *var)
 }
 
 /**
+ * DESCRIPTION:
  * Move player character.
+ * PARAMETERS:
  * @param	int		x	Pixel modification of Y axis.
  * @param	int		y	Pixel modification of X axis.
  * @param	t_var	var	Data about game.
