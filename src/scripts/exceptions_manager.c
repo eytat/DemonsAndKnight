@@ -31,11 +31,10 @@ int		exception_manager(int argc, char **argv);
  * Checks possible fails. Checks if there is an inut, correct 
  * .ber extension file, file permissions, map size and correct 
  * map elements.
- * PARAMETERS:
+ * RETURN:
+ * If something goes wrong return 1 else 0.
  * @param	int		argc	number of arguments of argv.
  * @param	char	**argv	input of main.
- * RETURN:
- * If something goes wrong exit the process else return 0.
  */
 int	exception_manager(int argc, char **argv)
 {
@@ -65,11 +64,11 @@ int	exception_manager(int argc, char **argv)
 /**
  * DESCRIPTION:
  * Checks that the length of the line is equal to col.
- * PARAMETERS:
+ * RETURN:
+ * If there is difference number of columns between lines
+ * return 1 else 0.
  * @param	int		col		Number of columns of filename.ber.
  * @param	char	*line	Current read line of filename.ber
- * RETURN:
- * If col is different to len returns 1 else 0.
  */
 int	ch_linelen(int col, char *line)
 {
@@ -89,12 +88,12 @@ int	ch_linelen(int col, char *line)
  * DESCRIPTION:
  * Checks that there are the minimun number or elements in
  * the map.
- * PARAMETERS:
+ * RETURN:
+ * If some element miss return 1, else 0.
+ * 
  * @param	int		r		Boolean flag and return value.
  * @param	int		col		Number of columns of filename.ber.
  * @param	char	*line	Current read line of filename.ber.
- * RETURN:
- * If some element miss return 1, else 0.
  */
 int	ch_chars(int r, int col, char *line, int cep[3])
 {
@@ -120,12 +119,11 @@ int	ch_chars(int r, int col, char *line, int cep[3])
  * Checks that the size and elements of the map.ber file.
  * All rows and columns must have the same length and 
  * correct character data elements.
- * PARAMTERS:
+ * RETURN:
+ * If some check fail return 1 else 0.
  * @param	int	fd	Filename.ber direction.
  * @param	int	col	Number of columns of filename.ber.
  * @param	int	row	Number of rows of filename.ber.
- * RETURN:
- * If some check fail return 1 else 0.
  */
 int	ch_map(int fd, int col, int row)
 {
@@ -160,12 +158,12 @@ int	ch_map(int fd, int col, int row)
  * established limite. Is for rows and columns. Pretends 
  * prevent that game's window be bigger than the pc's 
  * resolution.
- * PARAMENTERS:
- * @param	int	col	Number of columns of filename.ber.
- * @param	int	row	Number of rows of filename.ber.
  * RETURN:
  * If map size is bigger than max resolution return 1
  * else 0.
+ * @param	int	col	Number of columns of filename.ber.
+ * @param	int	row	Number of rows of filename.ber.
+
  */
 int	ch_resolution(int col, int row)
 {

@@ -41,10 +41,10 @@ void	print_map(char *fn, t_map *map)
 /**
  * DESCRIPTION:
  * Counts each character of a line until find '\n'.
- * PARAMETERS:
- * @param	char	*fn	File path.
  * RETURN:
  * Returns number of columns.
+ * PARAMETERS:
+ * @param	char	*fn	File path.
  */
 size_t	ft_columns(char *fn)
 {
@@ -63,10 +63,10 @@ size_t	ft_columns(char *fn)
 /**
  * DESCRIPTION:
  * Counts the '\n' of each line until the end's file .
- * PARAMETERS:
- * @param	char	*fn	File path.
  * RETURN:
  * Returns number of rows.
+ * PARAMETERS:
+ * @param	char	*fn	File path.
  */
 size_t	ft_rows(char *fn)
 {
@@ -86,13 +86,13 @@ size_t	ft_rows(char *fn)
 /**
  * DESCRIPTION:
  * Method that prints an error meassage when it happens.
- * PARAMETERS:
- * @param	char	*message	Custom error message displayed.
  * RETURN:
  * Always return 1.
+ * PARAMETERS:
+ * @param	char	*message	Custom error message displayed.
  */
 int	throw_exception(char *message)
 {
-	printf("\nERROR: %s\n", message);
+	ft_printf("\nERROR: %s\n", message);
 	return (1);
 }

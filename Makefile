@@ -33,6 +33,9 @@ LIBFT_PATH	=	./include/libft
 GNL			=	$(GNL_PATH)/gnl.a
 GNL_PATH	=	./include/get_next_line
 
+PRINTF		= $(PRINTF_PATH)/libftprintf.a
+PRINTF_PATH	= ./include/ft_printf
+
 MLX			=	$(MLX_PATH)/libmlx.a
 MLX_PATH	=	./include/mlx
 
@@ -43,7 +46,7 @@ CFLAGS		=	-Wall -Wextra -Werror -fsanitize=address
 RM			=	rm -f
 MLX_FLAGS	=	-lmlx -framework OpenGL -framework AppKit
 
-all:		makelib makemlx makegnl $(NAME)
+all:		makelib makegnl makeprintf makemlx $(NAME)
 
 bonus:		
 
@@ -51,7 +54,7 @@ bonus:
 	$(CC) $(CFLAGS) $<	-o $@
 
 $(NAME):	$(OBJ)
-			$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) $(MLX) $(LIBFT) $(GNL) -o	$(NAME)
+			$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) $(MLX) $(LIBFT) $(GNL) $(PRINTF) -o	$(NAME)
 
 makelib:
 			@make -C $(LIBFT_PATH)
@@ -59,6 +62,8 @@ makemlx:
 			@make -C $(MLX_PATH)
 makegnl:
 			@make -C $(GNL_PATH)
+makeprintf:
+			@make -C $(PRINTF_PATH)
 norme:
 			@echo "---- SRC ----"
 			norminette ./src
@@ -69,10 +74,11 @@ clean:
 			@make -C $(LIBFT_PATH) clean
 			@make -C $(MLX_PATH) clean
 			@make -C $(GNL_PATH) clean
+			@make -C $(PRINTF_PATH) clean
 			$(RM) $(OBJ) $(OBJ_BONUS)
 
 fclean:		clean
-			$(RM) $(NAME) $(LIBFT) $(GNL)
+			$(RM) $(NAME) $(LIBFT) $(GNL) $(PRINTF)
 
 re:			fclean all
 

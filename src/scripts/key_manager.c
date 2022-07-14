@@ -20,14 +20,13 @@ int		key_manager(int key, t_var *var);
  * DESCRITION:
  * Close the window and exit the process when
  * ESC key is holded. ESC keycode: 53.
- * PARAMETERS:
- * @param	t_var	*var	Data about game.
  * RETURN:
  * In exit return 0.
+ * @param	t_var	*var	Data about game.
  */
 int	close_win(t_var *var)
 {
-	printf("Closing...");
+	ft_printf("Closing...");
 	mlx_destroy_window(var->mlx, var->mlx_win);
 	exit(0);
 	return (0);
@@ -57,7 +56,7 @@ void	select_keycase(int x, int y, t_var *var)
 	{
 		if (var->nenemies == 0)
 		{
-			printf("Moves: %d\n", var->player.nmoves + 1);
+			ft_printf("Moves: %d\n", var->player.nmoves + 1);
 			exit(0);
 		}
 	}
@@ -74,11 +73,11 @@ void	select_keycase(int x, int y, t_var *var)
  * 	A = 0
  * 	S = 1
  * 	D = 2
+ * RETURN:
+ * When any event finish except close_win event return 0.
  * PARAMETERS:
  * @param	int		key		Codekey of keyboard input.
  * @param	t_var	*var	Data about game.
- * RETURN:
- * When any event finish except close_win event return 0.
  */
 int	key_manager(int key, t_var *var)
 {

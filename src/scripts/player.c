@@ -84,6 +84,6 @@ void	move_pc(int x, int y, t_var *var)
 		my = 100;
 	update_win(mx, my, var);
 	update_pos(x, y, var);
-	printf("Moves: %d\n", var->player.nmoves);
+	ft_printf("Moves: %d\n", var->player.nmoves);
 	return ;
 }
