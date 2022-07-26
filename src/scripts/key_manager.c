@@ -66,13 +66,14 @@ void	select_keycase(int x, int y, t_var *var)
 /**
  * DESCRIPTION:
  * Determinates the event when one of the keys W, A, S, D or 
- * ESC are holded. An event can be player's movement or close 
+ * ESC (Q) are holded. An event can be player's movement or close 
  * the window.
  * Keycodes:
  * 	W = 13
  * 	A = 0
  * 	S = 1
  * 	D = 2
+ *	ZQSD
  * RETURN:
  * When any event finish except close_win event return 0.
  * PARAMETERS:
